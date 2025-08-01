@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SUECO – Cartela de Cores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"><!-- global -->
+</head>
+<body class="cartela-cores">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">SUECO</div>
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="catalogo.html">CATÁLOGO</a></li>
+      <li><a href="colecoes.html">COLEÇÕES</a></li>
+      <li><a href="index.html#servicos">SERVIÇOS</a></li>
+      <li><a href="sobre.html">SOBRE</a></li>
+      <li><a href="index.html#contato">CONTATO</a></li>
+    </ul>
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+  </nav>
+<!-- Intro / Banner da Cartela de Cores -->
+<section class="cores-hero" aria-labelledby="cores-hero-title">
+  <div class="hero-inner">
+    <p class="kicker">CATÁLOGO</p>
+    <h1 id="cores-hero-title">CARTELA DE CORES</h1>
+    <p class="sub">
+      Paletas pensadas para traduzir tendências com personalidade e harmonia.
+      Explore as combinações e encontre o tom certo para a sua coleção.
+    </p>
+    <a class="btn-saiba" href="#cartela-cores">Ver cores</a>
+  </div>
+</section>
+
+  <main>
+    <section id="cartela-cores" class="section">
+      <h1>CORES</h1>
+      </p>
+      <div class="colors-grid" id="colorsGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer-sumario">
+      <!-- Chatbot Sueco -->
+  <div class="chatbot-wrapper">
+    <div class="chatbot-toggle">
+      <img src="images/logo2.png" alt="Avatar do Chatbot" class="chatbot-avatar">
+      <span class="chatbot-label">Compre pelo WhatsApp</span>
+    </div>
+    <iframe
+      src="URL_DO_SEU_CHATBOT"
+      class="chatbot-window"
+      title="Chat Sueco">
+    </iframe>
+  </div>
+
+    <div class="container">
+      <!-- Logo e endereços -->
+      <div>
+        <div class="logo">
+          <img src="images/logo.png" alt="Logo SUECO">
+          <span>SUECO</span>
+        </div>
+        <div class="address-info">
+          <strong>FÁBRICA</strong><br>
+          Estrada Municipal, 57 | Jardim Santo Afonso<br>
+          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
+        </div>
+        <div class="address-info">
+          <strong>ESCRITÓRIO</strong><br>
+          Rua Correia de Melo, 192 | Bom Retiro<br>
+          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
+        </div>
+      </div>
+
+      <!-- Institucional -->
+    <div>
+      <h4>Institucional</h4>
+      <a href="index.html">Home</a>
+      <a href="colecoes.html">Coleções</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="sobre.html">Sobre</a>
+    </div>
+
+      <!-- Serviços e Termos -->
+      <div>
+        <h4>Contato & Acesso</h4>
+        <a href="#contato">Contato</a>
+        <a href="/area-cliente">Acesso Restrito</a>
+        <a href="/acesso-restrito">2º Via de Boleto</a>
+        <a href="/termos">Termos de Uso</a>
+        <a href="/privacidade">Política de Privacidade</a>
+      </div>
+
+      <!-- Contato Rápido -->
+      <div class="contact-info">
+        <h4>Contato Rápido:</h4>
+        <p><i class="fas fa-phone"></i> (11) 2139-6000</p>
+        <p><i class="fas fa-envelope"></i> contato@sueco.com.br</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 SUECO – Todos os direitos reservados.
+    </div>
+  </footer>
+
+<!-- Modal / Slider -->
+<div class="colors-modal" id="modal">
+  <div class="modal-content">
+    <button class="close-modal" id="closeBtn" aria-label="Fechar">×</button>
+
+    <div class="slider">
+      <div class="slides" id="slides"></div>
+      <div class="brand-sueco">
+        <img src="images/logo.png" alt="SUECO" />
+        <span>SUECO</span>
+      </div>
+      <button class="slider-btn prev-slide" id="prevBtn" aria-label="Anterior">&lt;</button>
+      <button class="slider-btn next-slide" id="nextBtn" aria-label="Próximo">&gt;</button>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Scripts -->
+  <script src="script.js"></script>            <!-- global (theme toggle, animações)  -->
+  <script src="cartela-de-cores.js"></script>  <!-- específico desta página -->
+</body>
+</html>

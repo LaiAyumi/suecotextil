@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SUECO – Coleções</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar padrão -->
+  <nav class="navbar">
+    <div class="logo">SUECO</div>
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="catalogo.html">CATÁLOGO</a></li>
+      <li><a href="colecoes.html">COLEÇÕES</a></li>
+      <li><a href="index.html#servicos">SERVIÇOS</a></li>
+      <li><a href="sobre.html">SOBRE</a></li>
+      <li><a href="index.html#contato">CONTATO</a></li>
+    </ul>
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+  </nav>
+
+  <!-- HERO (igual ao padrão dourado) -->
+  <section class="coll-hero" aria-labelledby="coll-hero-title">
+    <div class="hero-inner">
+      <p class="kicker">CATÁLOGO</p>
+      <h1 id="coll-hero-title">COLEÇÕES</h1>
+      <p class="sub">
+        Linhas sazonais com curadoria de cores, bases e estampas. Explore por segmento e encontre a
+        coleção ideal para sua marca.
+      </p>
+      <a class="btn-saiba" href="#colecoes">Ver coleções</a>
+    </div>
+  </section>
+
+  <main id="colecoes" class="section">
+
+    <!-- FILTROS -->
+    <div class="coll-filters" role="tablist" aria-label="Filtrar por segmento">
+      <button class="coll-chip is-active" data-filter="all" role="tab" aria-selected="true">Todas</button>
+      <button class="coll-chip" data-filter="fem" role="tab">Feminino</button>
+      <button class="coll-chip" data-filter="masc" role="tab">Masculino</button>
+      <button class="coll-chip" data-filter="inf" role="tab">Infantil</button>
+      <button class="coll-chip" data-filter="praia" role="tab">Praia</button>
+      <button class="coll-chip" data-filter="fitness" role="tab">Fitness</button>
+    </div>
+
+    <!-- GRID DE COLEÇÕES -->
+    <div class="coll-grid" id="collGrid">
+      <!-- Exemplo de card (duplique/troque as imagens e tags) -->
+      <article class="coll-card" data-seg="fem praia">
+        <div class="coll-cover" style="background-image:url('images/colecoes/c1.jpg')"></div>
+        <div class="coll-body">
+          <span class="coll-season">SEASON</span>
+          <h3 class="coll-title">NOME - COLEÇÃO</h3>
+          <p class="coll-desc">DESCRIÇÃO</p>
+          <div class="coll-tags">
+            <span class="coll-tag">TAG 1</span>
+            <span class="coll-tag">TAG 2</span>
+          </div>
+          <div class="coll-actions">
+            <a class="btn-saiba" href="colecao-aura.html">Ver estampas</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="coll-card" data-seg="masc fitness">
+        <div class="coll-cover" style="background-image:url('images/colecoes/c2.jpg')"></div>
+        <div class="coll-body">
+          <span class="coll-season">SEASON</span>
+          <h3 class="coll-title">NOME - COLEÇÃO</h3>
+          <p class="coll-desc">DESCRIÇÃO</p>
+          <div class="coll-tags">
+            <span class="coll-tag">TAG 1</span>
+            <span class="coll-tag">TAG 2</span>
+          </div>
+          <div class="coll-actions">
+            <a class="btn-saiba" href="colecao-aura.html">Ver estampas</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="coll-card" data-seg="inf fem">
+        <div class="coll-cover" style="background-image:url('images/colecoes/c3.jpg')"></div>
+        <div class="coll-body">
+          <span class="coll-season">SEASON</span>
+          <h3 class="coll-title">NOME - COLEÇÃO</h3>
+          <p class="coll-desc">DESCRIÇÃO</p>
+          <div class="coll-tags">
+            <span class="coll-tag">TAG 1</span>
+            <span class="coll-tag">TAG 2</span>
+          </div>
+          <div class="coll-actions">
+            <a class="btn-saiba" href="colecao-aura.html">Ver estampas</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="coll-card" data-seg="praia fem">
+        <div class="coll-cover" style="background-image:url('images/colecoes/c4.jpg')"></div>
+        <div class="coll-body">
+          <span class="coll-season">SEASON</span>
+          <h3 class="coll-title">NOME - COLEÇÃO</h3>
+          <p class="coll-desc">DESCRIÇÃO</p>
+          <div class="coll-tags">
+            <span class="coll-tag">TAG 1</span>
+            <span class="coll-tag">TAG 2</span>
+          </div>
+          <div class="coll-actions">
+            <a class="btn-saiba" href="colecao-aura.html">Ver estampas</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Estado vazio -->
+    <p class="coll-empty" id="collEmpty" hidden>Nenhuma coleção para este segmento.</p>
+
+  </main>
+
+ <footer class="footer-sumario">
+    <!-- Chatbot Sueco -->
+    <div class="chatbot-wrapper">
+        <div class="chatbot-toggle">
+        <img src="images/logo2.png" alt="Avatar do Chatbot" class="chatbot-avatar">
+        <span class="chatbot-label">Compre pelo WhatsApp</span>
+        </div>
+        <iframe
+        src="URL_DO_SEU_CHATBOT"
+        class="chatbot-window"
+        title="Chat Sueco">
+        </iframe>
+    </div>
+
+    <div class="container">
+      <div>
+        <div class="logo">
+          <img src="images/logo.png" alt="Logo SUECO">
+          <span>SUECO</span>
+        </div>
+        <div class="address-info">
+          <strong>FÁBRICA</strong><br>
+          Estrada Municipal, 57 | Jardim Santo Afonso<br>
+          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
+        </div>
+        <div class="address-info">
+          <strong>ESCRITÓRIO</strong><br>
+          Rua Correia de Melo, 192 | Bom Retiro<br>
+          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
+        </div>
+      </div>
+
+    <div>
+      <h4>Institucional</h4>
+      <a href="index.html">Home</a>
+      <a href="colecoes.html">Coleções</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="sobre.html">Sobre</a>
+    </div>
+
+      <div>
+        <h4>Contato & Acesso</h4>
+        <a href="index.html#contato">Contato</a>
+        <a href="/area-cliente">Acesso Restrito</a>
+        <a href="/termos">Termos de Uso</a>
+        <a href="/privacidade">Política de Privacidade</a>
+      </div>
+
+      <div class="contact-info">
+        <h4>Contato Rápido:</h4>
+        <p><i class="fas fa-phone"></i> (11) 2139-6000</p>
+        <p><i class="fas fa-envelope"></i> contato@sueco.com.br</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 SUECO – Todos os direitos reservados.
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="colecoes.js"></script>
+</body>
+</html>

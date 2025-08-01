@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SUECO – Cartela de Estampas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="cartela-estampas">
+  <!-- Navbar igual às outras páginas -->
+  <nav class="navbar">
+    <div class="logo">SUECO</div>
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="catalogo.html">CATÁLOGO</a></li>
+      <li><a href="colecoes.html">COLEÇÕES</a></li>
+      <li><a href="index.html#servicos">SERVIÇOS</a></li>
+      <li><a href="sobre.html">SOBRE</a></li>
+      <li><a href="index.html#contato">CONTATO</a></li>
+    </ul>
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+  </nav>
+
+  <!-- Banner -->
+  <section class="prints-hero" aria-labelledby="prints-hero-title">
+    <div class="hero-inner">
+      <p class="kicker">CATÁLOGO</p>
+      <h1 id="prints-hero-title">CARTELA DE ESTAMPAS</h1>
+      <p class="sub">Padrões com personalidade para dar movimento e identidade às suas peças.</p>
+      <a class="btn-saiba" href="#cartela-estampas">Ver estampas</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="cartela-estampas" class="section">
+      <h1>ESTAMPAS</h1>
+      <div class="prints-grid" id="printsGrid"></div>
+    </section>
+  </main>
+
+  <!-- Modal / Slider -->
+<div class="prints-modal" id="printsModal">
+  <div class="prints-panel">
+    <button class="prints-close" id="printsClose" aria-label="Fechar">×</button>
+
+    <div class="prints-slider">
+      <div class="prints-slides" id="printsSlides"></div>
+
+      <button class="prints-btn prints-prev" id="printsPrev" aria-label="Anterior">&lt;</button>
+      <button class="prints-btn prints-next" id="printsNext" aria-label="Próximo">&gt;</button>
+    </div>
+
+    <!-- mesma assinatura usada no de cores -->
+    <div class="brand-sueco">
+      <img src="images/logo.png" alt="SUECO">
+      <span>SUECO</span>
+    </div>
+  </div>
+</div>
+
+  
+<!-- Footer Summary idêntico ao da página principal -->
+  <footer class="footer-sumario">
+      <!-- Chatbot Sueco -->
+  <div class="chatbot-wrapper">
+    <div class="chatbot-toggle">
+      <img src="images/logo2.png" alt="Avatar do Chatbot" class="chatbot-avatar">
+      <span class="chatbot-label">Compre pelo WhatsApp</span>
+    </div>
+    <iframe
+      src="URL_DO_SEU_CHATBOT"
+      class="chatbot-window"
+      title="Chat Sueco">
+    </iframe>
+  </div>
+
+    <div class="container">
+      <!-- Logo e endereços -->
+      <div>
+        <div class="logo">
+          <img src="images/logo.png" alt="Logo SUECO">
+          <span>SUECO</span>
+        </div>
+        <div class="address-info">
+          <strong>FÁBRICA</strong><br>
+          Estrada Municipal, 57 | Jardim Santo Afonso<br>
+          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
+        </div>
+        <div class="address-info">
+          <strong>ESCRITÓRIO</strong><br>
+          Rua Correia de Melo, 192 | Bom Retiro<br>
+          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
+        </div>
+      </div>
+
+      <!-- Institucional -->
+    <div>
+      <h4>Institucional</h4>
+      <a href="index.html">Home</a>
+      <a href="colecoes.html">Coleções</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="sobre.html">Sobre</a>
+    </div>
+
+      <!-- Serviços e Termos -->
+      <div>
+        <h4>Contato & Acesso</h4>
+        <a href="#contato">Contato</a>
+        <a href="/area-cliente">Acesso Restrito</a>
+        <a href="/acesso-restrito">2º Via de Boleto</a>
+        <a href="/termos">Termos de Uso</a>
+        <a href="/privacidade">Política de Privacidade</a>
+      </div>
+
+      <!-- Contato Rápido -->
+      <div class="contact-info">
+        <h4>Contato Rápido:</h4>
+        <p><i class="fas fa-phone"></i> (11) 2139-6000</p>
+        <p><i class="fas fa-envelope"></i> contato@sueco.com.br</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 SUECO – Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script> <!-- seu script global, se necessário -->
+  <script src="cartela-de-estampas.js"></script> <!-- novo -->
+</body>
+</html>
