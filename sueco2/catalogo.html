@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SUECO – Catálogo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">SUECO</div>
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="catalogo.html">CATÁLOGO</a></li>
+      <li><a href="colecoes.html">COLEÇÕES</a></li>
+      <li><a href="index.html#servicos">SERVIÇOS</a></li>
+      <li><a href="sobre.html">SOBRE</a></li>
+      <li><a href="index.html#contato">CONTATO</a></li>
+    </ul>
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+  </nav>
+
+  <!-- Seção 1: Hero Slider (copiado da página inicial) -->
+  <section id="hero-slider" class="hero-slider framed">
+    <div class="slider-window">
+      <div class="slides">
+        <!-- Slide 1: Sobre a SUECO (modo escuro) -->
+        <div class="slide dark-slide" style="background-image:url('images/hero1.jpg')">
+          <div class="hero-content">
+            <h2>Sobre a SUECO</h2>
+            <p>Descrição breve.</p>
+            <a href="sobre.html" class="btn-saiba">Saiba Mais</a>
+          </div>
+        </div>
+        <!-- Slide 2: Coleção TAL (modo claro) -->
+        <div class="slide light-slide" style="background-image:url('images/collection-tal.jpg')">
+          <div class="hero-content">
+            <p class="subtitle">COLEÇÃO 1</p>
+            <h2>Nome da Coleção</h2>
+            <p>Descrição breve da coleção, destacando seus diferenciais e inspiração.</p>
+            <a href="#shop" class="btn-saiba">Conheça</a>
+          </div>
+        </div>
+        <!-- Slide 3: Coleção AURA 26 (modo escuro) -->
+        <div class="slide dark-slide" style="background-image:url('images/collection-aura.jpg')">
+          <div class="hero-content">
+            <p class="subtitle">COLEÇÃO 2</p>
+            <h2>NOME DA COLEÇÃO</h2>
+            <p>Descrição breve da coleção, destacando seus diferenciais e inspiração.</p>
+            <a href="#aura" class="btn-saiba">Conheça</a>
+          </div>
+        </div>
+        <!-- Slide 4: Central de Vendas (modo claro) -->
+        <div class="slide light-slide" style="background-image:url('images/central-vendas.jpg')">
+          <div class="hero-content">
+            <p class="subtitle">MALHAS · TECIDOS · BASES · LISOS · ESTAMPADOS</p>
+            <h2>CENTRAL DE VENDAS</h2>
+            <p>Compre online através do WhatsApp. Nosso time de vendas está pronto para te atender!</p>
+            <a href="https://wa.me/55seunumero" class="btn-saiba">Tenho Interesse</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="slider-btn prev">‹</button>
+    <button class="slider-btn next">›</button>
+  </section>
+
+  <main>
+    <!-- Seção: Cartela de Cores -->
+    <section id="cartela-cores" class="section content-row">
+      <div class="image">
+        <img src="images/cartela-cores.jpg" alt="Cartela de Cores">
+      </div>
+      <div class="text">
+        <p class="cc-subtitle">CATÁLOGO</p>
+        <h2 class="cc-title">CORES</h2>
+        <p class="cc-text">
+          As cores são transformadas em sentimentos, traduzindo as principais tendências,
+          contagiando e colorindo o mundo ao nosso redor. Descubra as paletas que farão
+          sua coleção brilhar.
+        </p>
+        <a href="cartela-de-cores.html" class="btn-saiba">Conheça</a>
+      </div>
+    </section>
+
+    <!-- Seção: Cartelas de Estampas -->
+    <section id="cartelas-estampas" class="section content-row reverse" data-reveal>
+        <div class="image">
+            <img src="images/cartelas-estampas.jpg" alt="Cartelas de Estampas">
+        </div>
+        <div class="text">
+            <p class="cc-subtitle">CATÁLOGO</p>
+            <h2 class="cc-title">ESTAMPAS</h2>
+            <p class="cc-text">
+            Nossas cartelas de estampas unem arte e tecnologia, criando padrões exclusivos
+            para dar personalidade e movimento às suas peças. Explore texturas, formas e
+            combinações inovadoras.
+            </p>
+            <!-- Botão Conheça adicionado -->
+            <a href="cartela-de-estampas.html" class="btn-saiba">Conheça</a>
+        </div>
+    </section>
+
+  <!-- Footer Summary -->
+  <footer class="footer-sumario">
+    <!-- Chatbot Sueco -->
+    <div class="chatbot-wrapper">
+        <div class="chatbot-toggle">
+        <img src="images/logo2.png" alt="Avatar do Chatbot" class="chatbot-avatar">
+        <span class="chatbot-label">Compre pelo WhatsApp</span>
+        </div>
+        <iframe
+        src="URL_DO_SEU_CHATBOT"
+        class="chatbot-window"
+        title="Chat Sueco">
+        </iframe>
+    </div>
+
+    <div class="container">
+      <div>
+        <div class="logo">
+          <img src="images/logo.png" alt="Logo SUECO">
+          <span>SUECO</span>
+        </div>
+        <div class="address-info">
+          <strong>FÁBRICA</strong><br>
+          Estrada Municipal, 57 | Jardim Santo Afonso<br>
+          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
+        </div>
+        <div class="address-info">
+          <strong>ESCRITÓRIO</strong><br>
+          Rua Correia de Melo, 192 | Bom Retiro<br>
+          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
+        </div>
+      </div>
+
+    <div>
+      <h4>Institucional</h4>
+      <a href="index.html">Home</a>
+      <a href="colecoes.html">Coleções</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="sobre.html">Sobre</a>
+    </div>
+    
+    <div>
+        <h4>Contato & Acesso</h4>
+        <a href="index.html#contato">Contato</a>
+        <a href="/area-cliente">Acesso Restrito</a>
+        <a href="/termos">Termos de Uso</a>
+        <a href="/privacidade">Política de Privacidade</a>
+     </div>
+
+      <div class="contact-info">
+        <h4>Contato Rápido:</h4>
+        <p><i class="fas fa-phone"></i> (11) 2139-6000</p>
+        <p><i class="fas fa-envelope"></i> contato@sueco.com.br</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 SUECO – Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
