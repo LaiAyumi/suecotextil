@@ -3,16 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SUECO – Estampas Personalizadas</title>
+  <title>SUECO - Estampas Personalizadas</title>
+  <meta name="description" content="Estampas personalizadas SUECO: briefing, criação, prova e produção da sua estampa exclusiva.">
+  <link rel="icon" href="images/logo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- aplica o tema salvo antes da primeira pintura (evita o flash escuro) -->
+  <script>try{if(localStorage.getItem('sueco-tema')==='light')document.body.classList.add('light')}catch(e){}</script>
 
   <!-- Navbar padrão -->
-  <nav class="navbar">
-    <div class="logo">SUECO</div>
-    <ul class="nav-links">
+  <nav class="navbar" aria-label="Principal">
+    <a href="index.html" class="logo">SUECO</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">HOME</a></li>
       <li><a href="catalogo.html">CATÁLOGO</a></li>
       <li><a href="colecoes.html">COLEÇÕES</a></li>
@@ -20,7 +29,7 @@
       <li><a href="sobre.html">SOBRE</a></li>
       <li><a href="index.html#contato">CONTATO</a></li>
     </ul>
-    <button id="theme-toggle" class="theme-toggle">🌙</button>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Tema claro" aria-pressed="false">&#9790;</button>
   </nav>
 
   <!-- HERO -->
@@ -29,7 +38,7 @@
       <p class="pp-kicker">SERVIÇOS</p>
       <h1 id="pp-hero-title">ESTAMPAS PERSONALIZADAS</h1>
       <p class="pp-sub">
-        Desenvolvemos a sua estampa do zero: briefing, criação, protótipo e produção —
+        Desenvolvemos a sua estampa do zero: briefing, criação, protótipo e produção,
         com tecnologia digital/rotativa e controle de cor.
       </p>
       <a class="btn-saiba" href="#pp-orcamento">Solicitar orçamento</a>
@@ -107,134 +116,120 @@
     <!-- Portfólio (mini galeria) -->
     <section class="section pp-gallery">
       <h2>Portfólio</h2>
+      <!-- imagens ilustrativas: substitua por trabalhos reais (veja o README) -->
       <div class="pp-grid">
-        <div class="pp-thumb" style="background-image:url('images/prints/p1.jpg')"></div>
-        <div class="pp-thumb" style="background-image:url('images/prints/p2.jpg')"></div>
-        <div class="pp-thumb" style="background-image:url('images/prints/p3.jpg')"></div>
-        <div class="pp-thumb" style="background-image:url('images/prints/p4.jpg')"></div>
+        <div class="pp-thumb ph-art" style="background-image:url('images/estampa-floral.webp')" role="img" aria-label="Estampa floral em aquarela (imagem ilustrativa)"><span class="ph-art__label" aria-hidden="true">Ilustrativo</span></div>
+        <div class="pp-thumb ph-art ph-art--dots" aria-hidden="true"><span class="ph-art__label">Ilustrativo</span></div>
+        <div class="pp-thumb ph-art ph-art--lines" aria-hidden="true"><span class="ph-art__label">Ilustrativo</span></div>
+        <div class="pp-thumb ph-art ph-art--waves" aria-hidden="true"><span class="ph-art__label">Ilustrativo</span></div>
       </div>
     </section>
 
     <section class="section pp-faq" id="faq">
-    <h2>Dúvidas frequentes</h2>
+      <h2>Dúvidas frequentes</h2>
 
-    <div class="pp-faq-panel">
+      <div class="pp-faq-panel">
         <div class="pp-qa">
-        <button class="q">
+          <button class="q" type="button" aria-expanded="false">
             <span>Qual o prazo médio?</span>
             <span class="ico" aria-hidden="true">+</span>
-        </button>
-        <div class="a">Entre 7 e 20 dias corridos, dependendo da complexidade e tecnologia.</div>
+          </button>
+          <div class="a">Entre 7 e 20 dias corridos, dependendo da complexidade e tecnologia.</div>
 
-        <button class="q">
+          <button class="q" type="button" aria-expanded="false">
             <span>Existe mínimo de produção?</span>
             <span class="ico" aria-hidden="true">+</span>
-        </button>
-        <div class="a">Para digital, mínimos baixos; para rotativa, consulte nossos volumes ideais.</div>
+          </button>
+          <div class="a">Para digital, mínimos baixos; para rotativa, consulte nossos volumes ideais.</div>
 
-        <button class="q">
+          <button class="q" type="button" aria-expanded="false">
             <span>Vocês ajustam as cores?</span>
             <span class="ico" aria-hidden="true">+</span>
-        </button>
-        <div class="a">Sim. Realizamos provas e calibragem até chegar na cor especificada.</div>
+          </button>
+          <div class="a">Sim. Realizamos provas e calibragem até chegar na cor especificada.</div>
         </div>
-    </div>
+      </div>
     </section>
 
+    <section class="section pp-cta" id="pp-orcamento">
+      <h2>Solicite seu orçamento</h2>
 
-<section class="section pp-cta" id="pp-orcamento">
-  <h2>Solicite seu orçamento</h2>
+      <div class="pp-contact-panel">
+        <form class="pp-form" id="pp-form">
+          <div class="pp-row">
+            <label class="sr-only" for="pp-nome">Seu nome</label>
+            <input id="pp-nome" name="nome" type="text" placeholder="SEU NOME" autocomplete="name" required>
+            <label class="sr-only" for="pp-email">Seu e-mail</label>
+            <input id="pp-email" name="email" type="email" placeholder="SEU E-MAIL" autocomplete="email" required>
+          </div>
 
-  <div class="pp-contact-panel">
-    <form class="pp-form" id="pp-form">
-      <div class="pp-row">
-        <input id="pp-nome" name="nome" type="text" placeholder="SEU NOME" required>
-        <input id="pp-email" name="email" type="email" placeholder="SEU E‑MAIL" required>
+          <div class="pp-row">
+            <label class="sr-only" for="pp-tel">Telefone ou WhatsApp</label>
+            <input id="pp-tel" name="telefone" type="tel" placeholder="TELEFONE/WHATSAPP" autocomplete="tel" required>
+            <label class="sr-only" for="pp-seg">Segmento</label>
+            <input id="pp-seg" name="segmento" type="text" placeholder="SEGMENTO (EX.: FEMININO, PRAIA)">
+          </div>
+
+          <label class="sr-only" for="pp-brief">Ideia da estampa</label>
+          <textarea id="pp-brief" name="briefing" rows="5" placeholder="CONTE RESUMIDAMENTE A IDEIA DA ESTAMPA"></textarea>
+
+          <div class="pp-actions">
+            <button type="submit" class="pp-btn pp-btn--gold">Enviar</button>
+            <!-- aparece só quando WHATSAPP_NUMERO (script.js) estiver configurado -->
+            <button class="pp-btn pp-btn--ghost" id="pp-whats" type="button" hidden>Chamar no WhatsApp</button>
+          </div>
+        </form>
       </div>
+    </section>
+  </main>
 
-      <div class="pp-row">
-        <input id="pp-tel" name="telefone" type="tel" placeholder="TELEFONE/WHATSAPP" required>
-        <input id="pp-seg" name="segmento" type="text" placeholder="SEGMENTO (EX.: FEMININO, PRAIA)">
-      </div>
-
-      <textarea id="pp-brief" name="briefing" rows="5" placeholder="CONTE RESUMIDAMENTE A IDEIA DA ESTAMPA"></textarea>
-
-      <div class="pp-actions">
-        <button type="submit" class="pp-btn pp-btn--gold">Enviar</button>
-        <a class="pp-btn pp-btn--ghost" id="pp-whats" href="#" rel="noopener">Chamar no WhatsApp</a>
-      </div>
-    </form>
-  </div>
-</section>
-
-
-
-<footer class="footer-sumario">
-      <!-- Chatbot Sueco -->
-  <div class="chatbot-wrapper">
-    <div class="chatbot-toggle">
-      <img src="images/logo2.png" alt="Avatar do Chatbot" class="chatbot-avatar">
-      <span class="chatbot-label">Compre pelo WhatsApp</span>
-    </div>
-    <iframe
-      src="URL_DO_SEU_CHATBOT"
-      class="chatbot-window"
-      title="Chat Sueco">
-    </iframe>
-  </div>
-
+  <footer class="footer-sumario">
     <div class="container">
       <!-- Logo e endereços -->
       <div>
         <div class="logo">
-          <img src="images/logo.png" alt="Logo SUECO">
+          <img src="images/logo.png" alt="" width="40" height="40">
           <span>SUECO</span>
         </div>
         <div class="address-info">
           <strong>FÁBRICA</strong><br>
-          Estrada Municipal, 57 | Jardim Santo Afonso<br>
-          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
+          Estrada Municipal, 57 | Jardim Santo Afonso<br>
+          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
         </div>
         <div class="address-info">
           <strong>ESCRITÓRIO</strong><br>
-          Rua Correia de Melo, 192 | Bom Retiro<br>
-          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
+          Rua Correia de Melo, 192 | Bom Retiro<br>
+          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
         </div>
       </div>
 
       <!-- Institucional -->
-    <div>
-      <h4>Institucional</h4>
-      <a href="index.html">Home</a>
-      <a href="colecoes.html">Coleções</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="sobre.html">Sobre</a>
-    </div>
-      <!-- Serviços e Termos -->
-      <div>
-        <h4>Contato & Acesso</h4>
-        <a href="#contato">Contato</a>
-        <a href="/area-cliente">Acesso Restrito</a>
-        <a href="/acesso-restrito">2º Via de Boleto</a>
-        <a href="/termos">Termos de Uso</a>
-        <a href="/privacidade">Política de Privacidade</a>
-      </div>
+      <nav aria-label="Institucional">
+        <h2>Institucional</h2>
+        <a href="index.html">Home</a>
+        <a href="colecoes.html">Coleções</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
 
-      <!-- Contato Rápido -->
+      <!-- Catálogo e serviços -->
+      <nav aria-label="Catálogo e serviços">
+        <h2>Catálogo &amp; Serviços</h2>
+        <a href="cartela-de-cores.html">Cartela de Cores</a>
+        <a href="cartela-de-estampas.html">Cartela de Estampas</a>
+        <a href="estampas-personalizadas.html">Estampas Personalizadas</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+
+      <!-- Contato rápido -->
       <div class="contact-info">
-        <h4>Contato Rápido:</h4>
-        <p><i class="fas fa-phone"></i> (11) 2139-6000</p>
-        <p><i class="fas fa-envelope"></i> contato@sueco.com.br</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-        </div>
+        <h2>Contato Rápido</h2>
+        <a class="contact-line" href="tel:+551121396000"><svg class="contact-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span class="sr-only">Telefone: </span>(11) 2139-6000</a>
+        <a class="contact-line" href="mailto:contato@sueco.com.br"><svg class="contact-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5.1 8-5.1V7H4zm16 2.8-7.46 4.75a1 1 0 0 1-1.08 0L4 9.8V17h16V9.8z"/></svg><span class="sr-only">E-mail: </span>contato@sueco.com.br</a>
       </div>
     </div>
-
     <div class="footer-bottom">
-      &copy; 2025 SUECO – Todos os direitos reservados.
+      &copy; 2025 SUECO - Todos os direitos reservados.
     </div>
   </footer>
 

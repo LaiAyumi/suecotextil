@@ -3,24 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SUECO – Coleções</title>
+  <title>SUECO - Coleções</title>
+  <meta name="description" content="Coleções SUECO: linhas sazonais com curadoria de cores, bases e estampas, com filtro por segmento.">
+  <link rel="icon" href="images/logo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- aplica o tema salvo antes da primeira pintura (evita o flash escuro) -->
+  <script>try{if(localStorage.getItem('sueco-tema')==='light')document.body.classList.add('light')}catch(e){}</script>
 
   <!-- Navbar padrão -->
-  <nav class="navbar">
-    <div class="logo">SUECO</div>
-    <ul class="nav-links">
+  <nav class="navbar" aria-label="Principal">
+    <a href="index.html" class="logo">SUECO</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">HOME</a></li>
       <li><a href="catalogo.html">CATÁLOGO</a></li>
-      <li><a href="colecoes.html">COLEÇÕES</a></li>
+      <li><a href="colecoes.html" aria-current="page">COLEÇÕES</a></li>
       <li><a href="index.html#servicos">SERVIÇOS</a></li>
       <li><a href="sobre.html">SOBRE</a></li>
       <li><a href="index.html#contato">CONTATO</a></li>
     </ul>
-    <button id="theme-toggle" class="theme-toggle">🌙</button>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Tema claro" aria-pressed="false">&#9790;</button>
   </nav>
 
   <!-- HERO (igual ao padrão dourado) -->
@@ -39,20 +48,21 @@
   <main id="colecoes" class="section">
 
     <!-- FILTROS -->
-    <div class="coll-filters" role="tablist" aria-label="Filtrar por segmento">
-      <button class="coll-chip is-active" data-filter="all" role="tab" aria-selected="true">Todas</button>
-      <button class="coll-chip" data-filter="fem" role="tab">Feminino</button>
-      <button class="coll-chip" data-filter="masc" role="tab">Masculino</button>
-      <button class="coll-chip" data-filter="inf" role="tab">Infantil</button>
-      <button class="coll-chip" data-filter="praia" role="tab">Praia</button>
-      <button class="coll-chip" data-filter="fitness" role="tab">Fitness</button>
+    <div class="coll-filters" role="group" aria-label="Filtrar por segmento">
+      <button class="coll-chip is-active" type="button" data-filter="all" aria-pressed="true">Todas</button>
+      <button class="coll-chip" type="button" data-filter="fem" aria-pressed="false">Feminino</button>
+      <button class="coll-chip" type="button" data-filter="masc" aria-pressed="false">Masculino</button>
+      <button class="coll-chip" type="button" data-filter="inf" aria-pressed="false">Infantil</button>
+      <button class="coll-chip" type="button" data-filter="praia" aria-pressed="false">Praia</button>
+      <button class="coll-chip" type="button" data-filter="fitness" aria-pressed="false">Fitness</button>
     </div>
 
     <!-- GRID DE COLEÇÕES -->
+    <h2 class="sr-only">Lista de coleções</h2>
     <div class="coll-grid" id="collGrid">
-      <!-- Exemplo de card (duplique/troque as imagens e tags) -->
+      <!-- Cards de exemplo: troque capa, temporada, nome, descrição e tags (veja o README) -->
       <article class="coll-card" data-seg="fem praia">
-        <div class="coll-cover" style="background-image:url('images/colecoes/c1.jpg')"></div>
+        <div class="coll-cover ph-art ph-art--dots" aria-hidden="true"><span class="ph-art__label">Ilustrativo</span></div>
         <div class="coll-body">
           <span class="coll-season">SEASON</span>
           <h3 class="coll-title">NOME - COLEÇÃO</h3>
@@ -68,7 +78,7 @@
       </article>
 
       <article class="coll-card" data-seg="masc fitness">
-        <div class="coll-cover" style="background-image:url('images/colecoes/c2.jpg')"></div>
+        <div class="coll-cover ph-art ph-art--lines" aria-hidden="true"><span class="ph-art__label">Ilustrativo</span></div>
         <div class="coll-body">
           <span class="coll-season">SEASON</span>
           <h3 class="coll-title">NOME - COLEÇÃO</h3>
@@ -84,7 +94,7 @@
       </article>
 
       <article class="coll-card" data-seg="inf fem">
-        <div class="coll-cover" style="background-image:url('images/colecoes/c3.jpg')"></div>
+        <div class="coll-cover ph-art ph-art--waves" aria-hidden="true"><span class="ph-art__label">Ilustrativo</span></div>
         <div class="coll-body">
           <span class="coll-season">SEASON</span>
           <h3 class="coll-title">NOME - COLEÇÃO</h3>
@@ -100,7 +110,7 @@
       </article>
 
       <article class="coll-card" data-seg="praia fem">
-        <div class="coll-cover" style="background-image:url('images/colecoes/c4.jpg')"></div>
+        <div class="coll-cover ph-art ph-art--grid" aria-hidden="true"><span class="ph-art__label">Ilustrativo</span></div>
         <div class="coll-body">
           <span class="coll-season">SEASON</span>
           <h3 class="coll-title">NOME - COLEÇÃO</h3>
@@ -117,71 +127,57 @@
     </div>
 
     <!-- Estado vazio -->
-    <p class="coll-empty" id="collEmpty" hidden>Nenhuma coleção para este segmento.</p>
+    <p class="coll-empty" id="collEmpty" role="status" hidden>Nenhuma coleção para este segmento.</p>
 
   </main>
 
- <footer class="footer-sumario">
-    <!-- Chatbot Sueco -->
-    <div class="chatbot-wrapper">
-        <div class="chatbot-toggle">
-        <img src="images/logo2.png" alt="Avatar do Chatbot" class="chatbot-avatar">
-        <span class="chatbot-label">Compre pelo WhatsApp</span>
-        </div>
-        <iframe
-        src="URL_DO_SEU_CHATBOT"
-        class="chatbot-window"
-        title="Chat Sueco">
-        </iframe>
-    </div>
-
+  <footer class="footer-sumario">
     <div class="container">
+      <!-- Logo e endereços -->
       <div>
         <div class="logo">
-          <img src="images/logo.png" alt="Logo SUECO">
+          <img src="images/logo.png" alt="" width="40" height="40">
           <span>SUECO</span>
         </div>
         <div class="address-info">
           <strong>FÁBRICA</strong><br>
-          Estrada Municipal, 57 | Jardim Santo Afonso<br>
-          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
+          Estrada Municipal, 57 | Jardim Santo Afonso<br>
+          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
         </div>
         <div class="address-info">
           <strong>ESCRITÓRIO</strong><br>
-          Rua Correia de Melo, 192 | Bom Retiro<br>
-          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
+          Rua Correia de Melo, 192 | Bom Retiro<br>
+          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
         </div>
       </div>
 
-    <div>
-      <h4>Institucional</h4>
-      <a href="index.html">Home</a>
-      <a href="colecoes.html">Coleções</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="sobre.html">Sobre</a>
-    </div>
+      <!-- Institucional -->
+      <nav aria-label="Institucional">
+        <h2>Institucional</h2>
+        <a href="index.html">Home</a>
+        <a href="colecoes.html">Coleções</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
 
-      <div>
-        <h4>Contato & Acesso</h4>
+      <!-- Catálogo e serviços -->
+      <nav aria-label="Catálogo e serviços">
+        <h2>Catálogo &amp; Serviços</h2>
+        <a href="cartela-de-cores.html">Cartela de Cores</a>
+        <a href="cartela-de-estampas.html">Cartela de Estampas</a>
+        <a href="estampas-personalizadas.html">Estampas Personalizadas</a>
         <a href="index.html#contato">Contato</a>
-        <a href="/area-cliente">Acesso Restrito</a>
-        <a href="/termos">Termos de Uso</a>
-        <a href="/privacidade">Política de Privacidade</a>
-      </div>
+      </nav>
 
+      <!-- Contato rápido -->
       <div class="contact-info">
-        <h4>Contato Rápido:</h4>
-        <p><i class="fas fa-phone"></i> (11) 2139-6000</p>
-        <p><i class="fas fa-envelope"></i> contato@sueco.com.br</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-        </div>
+        <h2>Contato Rápido</h2>
+        <a class="contact-line" href="tel:+551121396000"><svg class="contact-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span class="sr-only">Telefone: </span>(11) 2139-6000</a>
+        <a class="contact-line" href="mailto:contato@sueco.com.br"><svg class="contact-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5.1 8-5.1V7H4zm16 2.8-7.46 4.75a1 1 0 0 1-1.08 0L4 9.8V17h16V9.8z"/></svg><span class="sr-only">E-mail: </span>contato@sueco.com.br</a>
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2025 SUECO – Todos os direitos reservados.
+      &copy; 2025 SUECO - Todos os direitos reservados.
     </div>
   </footer>
   <script src="script.js"></script>

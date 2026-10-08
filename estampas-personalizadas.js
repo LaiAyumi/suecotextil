@@ -1,35 +1,29 @@
 // estampas-personalizadas.js
 document.addEventListener('DOMContentLoaded', () => {
-// FAQ — um aberto por vez
-const faqButtons = document.querySelectorAll('.pp-qa .q');
-faqButtons.forEach((btn) => {
-  const answer = btn.nextElementSibling;
-  if (answer) answer.style.maxHeight = '0px';
+  // FAQ: um aberto por vez
+  const faqButtons = document.querySelectorAll('.pp-qa .q');
 
-  btn.addEventListener('click', () => {
-    const isOpening = !btn.classList.contains('open');
+  // a altura da resposta vem do CSS (.q.open + .a); medir aqui cortava o texto
+  function setItem(btn, open) {
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  }
 
-    // fecha todos
-    faqButtons.forEach(b => {
-      if (b !== btn) {
-        b.classList.remove('open');
-        const a = b.nextElementSibling;
-        if (a) a.style.maxHeight = '0px';
-      }
-    });
-
-    // toggle atual
-    btn.classList.toggle('open', isOpening);
+  faqButtons.forEach((btn, i) => {
+    const answer = btn.nextElementSibling;
     if (answer) {
-      answer.style.maxHeight = isOpening ? answer.scrollHeight + 'px' : '0px';
+      if (!answer.id) answer.id = `pp-faq-a${i + 1}`;
+      btn.setAttribute('aria-controls', answer.id);
     }
+    setItem(btn, false);
 
-    // troca + / –
-    const ico = btn.querySelector('.ico');
-    if (ico) ico.textContent = isOpening ? '–' : '+';
+    btn.addEventListener('click', () => {
+      const isOpening = !btn.classList.contains('open');
+      // fecha os demais (o ícone volta a "+" via CSS)
+      faqButtons.forEach(b => { if (b !== btn) setItem(b, false); });
+      setItem(btn, isOpening);
+    });
   });
-});
-
 
   // Formulário (toast) + WhatsApp
   const form  = document.getElementById('pp-form');
@@ -38,18 +32,18 @@ faqButtons.forEach((btn) => {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (typeof showToast === 'function') showToast('Recebemos seu briefing. Obrigado!');
-      form.reset();
+      if (typeof showToast === 'function') showToast(AVISO_FORMULARIO);
     });
   }
 
-  if (whats && form) {
-    whats.addEventListener('click', (e) => {
-      e.preventDefault();
+  // O botão só aparece quando WHATSAPP_NUMERO (script.js) estiver configurado.
+  if (whats && form && typeof whatsappConfigurado === 'function' && whatsappConfigurado()) {
+    whats.hidden = false;
+    whats.addEventListener('click', () => {
       const nome = form.querySelector('[name="nome"]')?.value?.trim() || '';
       const seg  = form.querySelector('[name="segmento"]')?.value?.trim() || '';
-      const msg  = encodeURIComponent(`Olá! Tenho interesse em Estampas Personalizadas.\nNome: ${nome}\nSegmento: ${seg}`);
-      window.open(`https://wa.me/55SEUNUMERO?text=${msg}`, '_blank');
+      const msg  = `Olá! Tenho interesse em Estampas Personalizadas.\nNome: ${nome}\nSegmento: ${seg}`;
+      window.open(whatsappUrl(msg), '_blank', 'noopener');
     });
   }
 });

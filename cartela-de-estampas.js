@@ -1,46 +1,60 @@
 // cartela-de-estampas.js
 document.addEventListener('DOMContentLoaded', function () {
-  // 1) Dados de exemplo — substitua pelos seus
+  // 1) Dados de exemplo: substitua pelas estampas reais (veja "Conteúdo do cliente" no README).
+  //    "img" é opcional; sem imagem, o card mostra um padrão ilustrativo ("pattern").
+  //    Enquanto forem exemplos, os cards levam o selo "Ilustrativo".
   const prints = [
-    { name: 'PRETTY DOTS', code: 'E0001', collection: 'Verão 25', img: 'images/prints/p1.jpg' },
-    { name: 'URBAN LINES', code: 'E0002', collection: 'Capsule',   img: 'images/prints/p2.jpg' },
-    { name: 'AQUARELA',    code: 'E0003', collection: 'Arte',      img: 'images/prints/p3.jpg' },
-    { name: 'TROPICAL',    code: 'E0004', collection: 'Resort',    img: 'images/prints/p4.jpg' }
+    { name: 'PRETTY DOTS', code: 'E0001', collection: 'Verão 25', pattern: 'dots' },
+    { name: 'URBAN LINES', code: 'E0002', collection: 'Capsule',  pattern: 'lines' },
+    { name: 'AQUARELA',    code: 'E0003', collection: 'Arte',     img: 'images/estampa-floral.webp' },
+    { name: 'TROPICAL',    code: 'E0004', collection: 'Resort',   pattern: 'waves' }
   ];
 
   // 2) Referências do DOM
   const grid       = document.getElementById('printsGrid');
-  const modal      = document.getElementById('printsModal');
-  const panel      = modal ? modal.querySelector('.prints-panel') : null;
+  const modalEl    = document.getElementById('printsModal');
   const slidesWrap = document.getElementById('printsSlides');
   const prevBtn    = document.getElementById('printsPrev');
   const nextBtn    = document.getElementById('printsNext');
-  const closeBtn   = document.getElementById('printsClose');
 
-  if (!grid || !modal || !slidesWrap) return;
+  if (!grid || !modalEl || !slidesWrap || typeof createModal !== 'function') return;
 
-  // 3) Monta GRID + SLIDES (1 por estampa)
+  const modal = createModal(modalEl, { openClass: 'active', closeSelector: '#printsClose' });
   let current = 0;
 
+  // Fundo do card/slide: imagem (inline) ou padrão ilustrativo em CSS
+  function artAttrs(p) {
+    return p.img ? `style="background-image:url('${p.img}')"` : '';
+  }
+  function artClass(p) {
+    return ' ph-art' + (p.img ? '' : ` ph-art--${p.pattern || 'dots'}`);
+  }
+
+  // 3) Monta GRID + SLIDES (1 por estampa)
   prints.forEach((p, idx) => {
     // Card
-    const card = document.createElement('div');
+    const card = document.createElement('button');
+    card.type = 'button';
     card.className = 'print-card';
+    card.setAttribute('aria-haspopup', 'dialog');
     card.innerHTML = `
-      <div class="thumb" style="background-image:url('${p.img}')"></div>
-      <div class="meta">
+      <span class="thumb${artClass(p)}" ${artAttrs(p)} aria-hidden="true"><span class="ph-art__label">Ilustrativo</span></span>
+      <span class="meta">
         <span class="name">${p.name}</span>
         <span class="code">${p.code}</span>
-      </div>
+      </span>
     `;
-    card.addEventListener('click', () => openAt(idx));
+    card.addEventListener('click', () => {
+      show(idx);
+      modal.open(card);
+    });
     grid.appendChild(card);
 
     // Slide
     const slide = document.createElement('div');
     slide.className = 'prints-slide';
     slide.innerHTML = `
-      <div class="prints-swatch" style="background-image:url('${p.img}')"></div>
+      <div class="prints-swatch${artClass(p)}" ${artAttrs(p)} aria-hidden="true"></div>
       <div class="prints-details">
         <h3>${p.name}</h3>
         <p>${p.code}</p>
@@ -50,36 +64,23 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesWrap.appendChild(slide);
   });
 
-  function openAt(index) {
-    current = index;
+  function show(index) {
+    current = (index + prints.length) % prints.length;
     slidesWrap.style.transform = `translateX(-${current * 100}%)`;
-    modal.classList.add('active');
-    document.body.classList.add('no-scroll');
-  }
-
-  function closeModal() {
-    modal.classList.remove('active');
-    document.body.classList.remove('no-scroll');
+    Array.from(slidesWrap.children).forEach((slide, i) => {
+      slide.setAttribute('aria-hidden', String(i !== current));
+    });
   }
 
   // 4) Navegação
-  prevBtn && prevBtn.addEventListener('click', () => {
-    current = (current - 1 + prints.length) % prints.length;
-    slidesWrap.style.transform = `translateX(-${current * 100}%)`;
-  });
-  nextBtn && nextBtn.addEventListener('click', () => {
-    current = (current + 1) % prints.length;
-    slidesWrap.style.transform = `translateX(-${current * 100}%)`;
-  });
-  closeBtn && closeBtn.addEventListener('click', closeModal);
+  prevBtn && prevBtn.addEventListener('click', () => show(current - 1));
+  nextBtn && nextBtn.addEventListener('click', () => show(current + 1));
 
-  // Fecha clicando fora do painel
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  // Acessibilidade: ESC fecha
   document.addEventListener('keydown', (e) => {
-    if (modal.classList.contains('active') && e.key === 'Escape') closeModal();
+    if (!modal.isOpen()) return;
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
   });
+
+  show(0);
 });

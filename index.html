@@ -4,152 +4,150 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SUECO - Tecidos de Excelência</title>
+  <meta name="description" content="SUECO Têxtil: malhas e tecidos, coleções, cartela de cores, cartela de estampas e estampas personalizadas.">
+  <link rel="icon" href="images/logo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- aplica o tema salvo antes da primeira pintura (evita o flash escuro) -->
+  <script>try{if(localStorage.getItem('sueco-tema')==='light')document.body.classList.add('light')}catch(e){}</script>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">SUECO</div>
-    <ul class="nav-links">
-      <li><a href="index.html">HOME</a></li>
+  <nav class="navbar" aria-label="Principal">
+    <a href="index.html" class="logo">SUECO</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" aria-current="page">HOME</a></li>
       <li><a href="catalogo.html">CATÁLOGO</a></li>
       <li><a href="colecoes.html">COLEÇÕES</a></li>
       <li><a href="index.html#servicos">SERVIÇOS</a></li>
       <li><a href="sobre.html">SOBRE</a></li>
       <li><a href="index.html#contato">CONTATO</a></li>
     </ul>
-    <button id="theme-toggle" class="theme-toggle">🌙</button>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Tema claro" aria-pressed="false">&#9790;</button>
   </nav>
 
-<section id="hero-slider" class="hero-slider framed">
+<main>
+  <h1 class="sr-only">SUECO - Tecidos de Excelência</h1>
+
+<section id="hero-slider" class="hero-slider" aria-roledescription="carrossel" aria-label="Destaques">
   <div class="slider-window">
     <div class="slides">
       <!-- Slide 1: Sobre a SUECO (modo escuro) -->
-      <div class="slide dark-slide" style="background-image:url('images/hero1.jpg')">
+      <div class="slide dark-slide" style="background-image:url('images/dark-hero-bg.webp')">
         <div class="hero-content">
           <h2>Sobre a SUECO</h2>
-          <p>Descrição breve.</p>
+          <p>Conheça nossa história, nossa estrutura e nosso compromisso ambiental.</p>
           <a href="sobre.html" class="btn-saiba">Saiba Mais</a>
         </div>
       </div>
-      <!-- Slide 2: Coleção TAL (modo claro) -->
-      <div class="slide light-slide" style="background-image:url('images/collection-tal.jpg')">
+      <!-- Slide 2: Coleções (modo claro) -->
+      <div class="slide light-slide" style="background-image:url('images/wave-bg.webp')">
         <div class="hero-content">
-          <p class="subtitle">COLEÇÃO 1</p>
-          <h2>Nome da Coleção</h2>
-          <p>Descrição breve da coleção, destacando seus diferenciais e inspiração.</p>
-          <a href="colecao-aura.html" class="btn-saiba">Conheça</a>
+          <p class="subtitle">COLEÇÕES</p>
+          <h2>Nossas Coleções</h2>
+          <p>Linhas sazonais com curadoria de cores, bases e estampas.</p>
+          <a href="colecoes.html" class="btn-saiba">Conheça</a>
         </div>
       </div>
-      <!-- Slide 3: Coleção AURA 26 (modo escuro) -->
-      <div class="slide dark-slide" style="background-image:url('images/collection-aura.jpg')">
+      <!-- Slide 3: Cores & Estampas (modo escuro) -->
+      <div class="slide dark-slide" style="background-image:url('images/dark-hero-bg.webp')">
         <div class="hero-content">
-          <p class="subtitle">COLEÇÃO 2</p>
-          <h2>NOME DA COLEÇÃO</h2>
-          <p>Descrição breve da coleção, destacando seus diferenciais e inspiração.</p>
-          <a href="colecao-aura.html" class="btn-saiba">Conheça</a>
+          <p class="subtitle">CATÁLOGO</p>
+          <h2>Cores &amp; Estampas</h2>
+          <p>Explore a cartela de cores e a cartela de estampas da SUECO.</p>
+          <a href="catalogo.html" class="btn-saiba">Conheça</a>
         </div>
       </div>
-      <!-- Slide 4: Central de Vendas (modo claro) -->
-      <div class="slide light-slide" style="background-image:url('images/central-vendas.jpg')">
+      <!-- Slide 4: Central de Vendas (modo claro) -->
+      <div class="slide light-slide" style="background-image:url('images/wave-bg.webp')">
         <div class="hero-content">
           <p class="subtitle">MALHAS · TECIDOS · BASES · LISOS · ESTAMPADOS</p>
-          <h2>CENTRAL DE VENDAS</h2>
-          <p>Compre online através do WhatsApp. Nosso time de vendas está pronto para te atender!</p>
-          <a href="https://wa.me/55seunumero" class="btn-saiba">Tenho Interesse</a>
+          <h2>Central de Vendas</h2>
+          <p>Fale com o nosso time de vendas e solicite orçamentos e amostras.</p>
+          <!-- vira link do WhatsApp quando WHATSAPP_NUMERO (script.js) estiver configurado -->
+          <a href="#contato" class="btn-saiba" data-whatsapp="Olá! Tenho interesse nos produtos da SUECO.">Tenho Interesse</a>
         </div>
       </div>
     </div>
   </div>
-  <button class="slider-btn prev">‹</button>
-  <button class="slider-btn next">›</button>
+  <button class="slider-btn prev" type="button" aria-label="Slide anterior">‹</button>
+  <button class="slider-btn next" type="button" aria-label="Próximo slide">›</button>
 </section>
 
   <!-- Seção Estampas Coloridas -->
-<section id="estampas" class="section estampas-palette">
-  <div class="container palette-container">
-    <!-- Slider de imagens -->
-    <div class="slider">
-      <button class="slider-btn prev">‹</button>
-      <div class="slider-window">
-        <div class="slides">
-          <div class="slide"><img src="https://picsum.photos/seed/1/400/400" alt="Estampa 1"></div>
-          <div class="slide"><img src="https://picsum.photos/seed/2/400/400" alt="Estampa 2"></div>
-          <div class="slide"><img src="https://picsum.photos/seed/3/400/400" alt="Estampa 3"></div>
-          <div class="slide"><img src="https://picsum.photos/seed/4/400/400" alt="Estampa 4"></div>
-        </div>
-      </div>
-      <button class="slider-btn next">›</button>
-    </div>
-
-<section id="cartela-cores" class="section cartela-cores">
-  <div class="container">
-    <p class="cc-subtitle">CATÁLOGO</p>
-    <h2 class="cc-title">CORES & ESTAMPAS</h2>
-    <p class="cc-text">
-        Nossas coleções trazem uma explosão de cores e padrões que vão do geométrico ao orgânico.  
-        Cada estampa é pensada para realçar o seu design e dar vida às peças, combinando tendências e  
-        arte em tecidos de alta performance.
-      </p>
-      <a href="catalogo.html" target="_blank" class="btn-saiba">Conheça</a>
-    </div>
-  </div>
-</section>
-
-<section id="shop">
-  <!-- Título e introdução -->
-  <h2>Estampas Personalizadas</h2>
-  <p class="shop-intro">
-    Crie sua estampa exclusiva em preto e branco, com design sob medida para destacar sua identidade.
-  </p>
-
-  <!-- Opção única de personalização -->
-  <div class="design-features">
-    <article class="feature" data-product="estampa-exclusiva">
-      <div class="feature-bg" style="background-image: url('assets/estampa-exclusiva.jpg');"></div>
-      <div class="feature-content">
-        <h3>Estampa Exclusiva</h3>
-        <p>Design único, pensado especialmente para você expressar sua personalidade.</p>
-        <a href="estampas-personalizadas.html" class="btn-custom" target="_blank" rel="noopener">
-          Personalizar Agora
-        </a>
-      </div>
-    </article>
-  </div>
-</section>
-
-    <!-- Painel de Detalhe -->
-    <div class="painel-produto" style="display: none;">
-      <button class="btn-voltar">Voltar</button>
-      <div class="painel-conteudo">
-        <img id="painel-img" src="" alt="Produto Selecionado">
-        <div class="painel-info">
-          <h2 id="painel-nome"></h2>
-          <p id="painel-descricao"></p>
-          <div class="logo-sueco">
-            <img src="/logo-sueco.png" alt="Logo Sueco">
-            <span>SUECO</span>
+  <section id="estampas" class="section estampas-palette" aria-labelledby="cc-title">
+    <div class="container palette-container">
+      <!-- Slider de estampas (imagens ilustrativas) -->
+      <div class="slider" role="region" aria-roledescription="carrossel" aria-label="Estampas ilustrativas">
+        <button class="slider-btn prev" type="button" aria-label="Estampa anterior">‹</button>
+        <div class="slider-window">
+          <div class="slides">
+            <div class="slide"><img src="images/estampa-floral.webp" alt="Estampa floral em aquarela (imagem ilustrativa)" width="1536" height="456" loading="lazy"><span class="ph-art__label ph-art__label--float" aria-hidden="true">Ilustrativo</span></div>
+            <div class="slide"><div class="ph-art ph-art--dots" role="img" aria-label="Padrão de poás (imagem ilustrativa)"><span class="ph-art__label" aria-hidden="true">Ilustrativo</span></div></div>
+            <div class="slide"><div class="ph-art ph-art--lines" role="img" aria-label="Padrão de listras (imagem ilustrativa)"><span class="ph-art__label" aria-hidden="true">Ilustrativo</span></div></div>
+            <div class="slide"><div class="ph-art ph-art--waves" role="img" aria-label="Padrão geométrico (imagem ilustrativa)"><span class="ph-art__label" aria-hidden="true">Ilustrativo</span></div></div>
           </div>
+        </div>
+        <button class="slider-btn next" type="button" aria-label="Próxima estampa">›</button>
+      </div>
+
+      <div id="cartela-cores" class="cartela-cores">
+        <div class="container">
+          <p class="cc-subtitle">CATÁLOGO</p>
+          <h2 class="cc-title" id="cc-title">CORES &amp; ESTAMPAS</h2>
+          <p class="cc-text">
+            Nossas coleções trazem uma explosão de cores e padrões que vão do geométrico ao orgânico.
+            Cada estampa é pensada para realçar o seu design e dar vida às peças, combinando tendências e
+            arte em tecidos de alta performance.
+          </p>
+          <a href="catalogo.html" class="btn-saiba">Conheça</a>
         </div>
       </div>
     </div>
   </section>
 
+  <section id="shop" aria-labelledby="shop-title">
+    <!-- Título e introdução -->
+    <h2 id="shop-title">Estampas Personalizadas</h2>
+    <p class="shop-intro">
+      Crie sua estampa exclusiva em preto e branco, com design sob medida para destacar sua identidade.
+    </p>
+
+    <!-- Opção única de personalização -->
+    <div class="design-features">
+      <article class="feature">
+        <div class="feature-bg" style="background-image: url('images/estampa-floral.webp');"></div>
+        <div class="feature-content">
+          <h3>Estampa Exclusiva</h3>
+          <p>Design único, pensado especialmente para você expressar sua personalidade.</p>
+          <a href="estampas-personalizadas.html" class="btn-custom">
+            Personalizar Agora
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- Serviços Exclusivos -->
-  <section id="servicos" class="section servicos-grid framed">
-    <h2>SERVIÇOS EXCLUSIVOS</h2>
+  <section id="servicos" class="section" aria-labelledby="servicos-title">
+    <h2 id="servicos-title">SERVIÇOS EXCLUSIVOS</h2>
     <div class="servicos-grid">
-      <a href="/forca-vendas.html" class="servico-card">
+      <!-- Área restrita ainda sem página: card informativo, sem link -->
+      <div class="servico-card servico-card--static">
         <h3>Acesso Restrito</h3>
         <p>Acesso para funcionários e representantes.</p>
-      </a>
-      <a href="/produtos-destaque.html" class="servico-card">
+      </div>
+      <a href="colecoes.html" class="servico-card">
         <h3>COLEÇÕES - Estampas</h3>
         <p>Conheça nossas coleções!</p>
       </a>
-      <a href="/segunda-via-boleto.html" class="servico-card">
+      <a href="#contato" class="servico-card">
         <h3>Segunda Via de Boleto</h3>
         <p>Solicite informando CNPJ/CPF.</p>
       </a>
@@ -157,88 +155,73 @@
   </section>
 
   <!-- Contato -->
-  <section id="contato" class="section contato framed">
-    <h2>CONTATO</h2>
+  <section id="contato" class="section contato" aria-labelledby="contato-title">
+    <h2 id="contato-title">CONTATO</h2>
     <form id="contato-form" class="contato-form">
-      <input type="text" name="nome" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu e-mail" required>
-      <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+      <label class="sr-only" for="contato-nome">Seu nome</label>
+      <input id="contato-nome" type="text" name="nome" placeholder="Seu nome" autocomplete="name" required>
+      <label class="sr-only" for="contato-email">Seu e-mail</label>
+      <input id="contato-email" type="email" name="email" placeholder="Seu e-mail" autocomplete="email" required>
+      <label class="sr-only" for="contato-mensagem">Sua mensagem</label>
+      <textarea id="contato-mensagem" name="mensagem" placeholder="Sua mensagem" required></textarea>
       <button type="submit" class="btn-saiba">Enviar</button>
     </form>
     <p>Solicite orçamentos e amostras, tire dúvidas e conheça nossos diferenciais.</p>
   </section>
-
-    <div class="chatbot-wrapper">
-    <div class="chatbot-toggle">
-        <img src="images/logo2.png" alt="Nick do Sueco" class="chatbot-avatar">
-        <span class="chatbot-label">Compre pelo WhatsApp</span>
-    </div>
-    <iframe
-        src="URL_DO_SEU_CHATBOT"
-        class="chatbot-window"
-        title="Chat Sueco">
-    </iframe>
-    </div>
+</main>
 
   <footer class="footer-sumario">
-  <div class="container">
-    <!-- Logo e endereços -->
-    <div>
-      <div class="logo">
-        <img src="images/logo.png" alt="Logo SUECO">
-        <span>SUECO</span>
+    <div class="container">
+      <!-- Logo e endereços -->
+      <div>
+        <div class="logo">
+          <img src="images/logo.png" alt="" width="40" height="40">
+          <span>SUECO</span>
+        </div>
+        <div class="address-info">
+          <strong>FÁBRICA</strong><br>
+          Estrada Municipal, 57 | Jardim Santo Afonso<br>
+          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
+        </div>
+        <div class="address-info">
+          <strong>ESCRITÓRIO</strong><br>
+          Rua Correia de Melo, 192 | Bom Retiro<br>
+          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
+        </div>
       </div>
-      <div class="address-info">
-        <strong>FÁBRICA</strong><br>
-        Estrada Municipal, 57 | Jardim Santo Afonso<br>
-        CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
-      </div>
-      <div class="address-info">
-        <strong>ESCRITÓRIO</strong><br>
-        Rua Correia de Melo, 192 | Bom Retiro<br>
-        CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
-      </div>
-    </div>
 
-    <!-- Institucional -->
-    <div>
-      <h4>Institucional</h4>
-      <a href="index.html">Home</a>
-      <a href="colecoes.html">Coleções</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="sobre.html">Sobre</a>
-    </div>
+      <!-- Institucional -->
+      <nav aria-label="Institucional">
+        <h2>Institucional</h2>
+        <a href="index.html">Home</a>
+        <a href="colecoes.html">Coleções</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
 
-    <!-- Serviços e Termos -->
-    <div>
-      <h4>Contato & Acesso</h4>
-      <a href="#contato">Contato</a>
-      <a href="/area-cliente">Acesso Restrito</a>
-      <a href="/acesso-restrito">2º Via de Boleto</a>
-      <a href="/termos">Termos de Uso</a>
-      <a href="/privacidade">Política de Privacidade</a>
-    </div>
+      <!-- Catálogo e serviços -->
+      <nav aria-label="Catálogo e serviços">
+        <h2>Catálogo &amp; Serviços</h2>
+        <a href="cartela-de-cores.html">Cartela de Cores</a>
+        <a href="cartela-de-estampas.html">Cartela de Estampas</a>
+        <a href="estampas-personalizadas.html">Estampas Personalizadas</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
 
-    <!-- Contato rápido -->
-    <div class="contact-info">
-      <h4>Contato Rápido</h4>
-      <p><i class="fas fa-phone"></i> (11) 2139-6000</p>
-      <p><i class="fas fa-envelope"></i> contato@sueco.com.br</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
-        <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
-        <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a>
+      <!-- Contato rápido -->
+      <div class="contact-info">
+        <h2>Contato Rápido</h2>
+        <a class="contact-line" href="tel:+551121396000"><svg class="contact-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span class="sr-only">Telefone: </span>(11) 2139-6000</a>
+        <a class="contact-line" href="mailto:contato@sueco.com.br"><svg class="contact-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5.1 8-5.1V7H4zm16 2.8-7.46 4.75a1 1 0 0 1-1.08 0L4 9.8V17h16V9.8z"/></svg><span class="sr-only">E-mail: </span>contato@sueco.com.br</a>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2025 SUECO - Todos os direitos reservados.
-  </div>
-</footer>
+    <div class="footer-bottom">
+      &copy; 2025 SUECO - Todos os direitos reservados.
+    </div>
+  </footer>
 
   <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
   <script src="script.js"></script>
 
 </body>

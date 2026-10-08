@@ -3,76 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SUECO – Catálogo</title>
+  <title>SUECO - Catálogo</title>
+  <meta name="description" content="Catálogo SUECO: conheça a cartela de cores e a cartela de estampas.">
+  <link rel="icon" href="images/logo.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- aplica o tema salvo antes da primeira pintura (evita o flash escuro) -->
+  <script>try{if(localStorage.getItem('sueco-tema')==='light')document.body.classList.add('light')}catch(e){}</script>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">SUECO</div>
-    <ul class="nav-links">
+  <nav class="navbar" aria-label="Principal">
+    <a href="index.html" class="logo">SUECO</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">HOME</a></li>
-      <li><a href="catalogo.html">CATÁLOGO</a></li>
+      <li><a href="catalogo.html" aria-current="page">CATÁLOGO</a></li>
       <li><a href="colecoes.html">COLEÇÕES</a></li>
       <li><a href="index.html#servicos">SERVIÇOS</a></li>
       <li><a href="sobre.html">SOBRE</a></li>
       <li><a href="index.html#contato">CONTATO</a></li>
     </ul>
-    <button id="theme-toggle" class="theme-toggle">🌙</button>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Tema claro" aria-pressed="false">&#9790;</button>
   </nav>
 
-  <!-- Seção 1: Hero Slider (copiado da página inicial) -->
-  <section id="hero-slider" class="hero-slider framed">
+  <main>
+  <h1 class="sr-only">Catálogo SUECO</h1>
+
+  <!-- Seção 1: Hero Slider (o mesmo da página inicial) -->
+  <section id="hero-slider" class="hero-slider" aria-roledescription="carrossel" aria-label="Destaques">
     <div class="slider-window">
       <div class="slides">
         <!-- Slide 1: Sobre a SUECO (modo escuro) -->
-        <div class="slide dark-slide" style="background-image:url('images/hero1.jpg')">
+        <div class="slide dark-slide" style="background-image:url('images/dark-hero-bg.webp')">
           <div class="hero-content">
             <h2>Sobre a SUECO</h2>
-            <p>Descrição breve.</p>
+            <p>Conheça nossa história, nossa estrutura e nosso compromisso ambiental.</p>
             <a href="sobre.html" class="btn-saiba">Saiba Mais</a>
           </div>
         </div>
-        <!-- Slide 2: Coleção TAL (modo claro) -->
-        <div class="slide light-slide" style="background-image:url('images/collection-tal.jpg')">
+        <!-- Slide 2: Coleções (modo claro) -->
+        <div class="slide light-slide" style="background-image:url('images/wave-bg.webp')">
           <div class="hero-content">
-            <p class="subtitle">COLEÇÃO 1</p>
-            <h2>Nome da Coleção</h2>
-            <p>Descrição breve da coleção, destacando seus diferenciais e inspiração.</p>
-            <a href="#shop" class="btn-saiba">Conheça</a>
+            <p class="subtitle">COLEÇÕES</p>
+            <h2>Nossas Coleções</h2>
+            <p>Linhas sazonais com curadoria de cores, bases e estampas.</p>
+            <a href="colecoes.html" class="btn-saiba">Conheça</a>
           </div>
         </div>
-        <!-- Slide 3: Coleção AURA 26 (modo escuro) -->
-        <div class="slide dark-slide" style="background-image:url('images/collection-aura.jpg')">
+        <!-- Slide 3: Cores & Estampas (modo escuro) -->
+        <div class="slide dark-slide" style="background-image:url('images/dark-hero-bg.webp')">
           <div class="hero-content">
-            <p class="subtitle">COLEÇÃO 2</p>
-            <h2>NOME DA COLEÇÃO</h2>
-            <p>Descrição breve da coleção, destacando seus diferenciais e inspiração.</p>
-            <a href="#aura" class="btn-saiba">Conheça</a>
+            <p class="subtitle">CATÁLOGO</p>
+            <h2>Cores &amp; Estampas</h2>
+            <p>Explore a cartela de cores e a cartela de estampas da SUECO.</p>
+            <a href="#cartela-cores" class="btn-saiba">Conheça</a>
           </div>
         </div>
-        <!-- Slide 4: Central de Vendas (modo claro) -->
-        <div class="slide light-slide" style="background-image:url('images/central-vendas.jpg')">
+        <!-- Slide 4: Central de Vendas (modo claro) -->
+        <div class="slide light-slide" style="background-image:url('images/wave-bg.webp')">
           <div class="hero-content">
             <p class="subtitle">MALHAS · TECIDOS · BASES · LISOS · ESTAMPADOS</p>
-            <h2>CENTRAL DE VENDAS</h2>
-            <p>Compre online através do WhatsApp. Nosso time de vendas está pronto para te atender!</p>
-            <a href="https://wa.me/55seunumero" class="btn-saiba">Tenho Interesse</a>
+            <h2>Central de Vendas</h2>
+            <p>Fale com o nosso time de vendas e solicite orçamentos e amostras.</p>
+            <!-- vira link do WhatsApp quando WHATSAPP_NUMERO (script.js) estiver configurado -->
+            <a href="index.html#contato" class="btn-saiba" data-whatsapp="Olá! Tenho interesse nos produtos da SUECO.">Tenho Interesse</a>
           </div>
         </div>
       </div>
     </div>
-    <button class="slider-btn prev">‹</button>
-    <button class="slider-btn next">›</button>
+    <button class="slider-btn prev" type="button" aria-label="Slide anterior">‹</button>
+    <button class="slider-btn next" type="button" aria-label="Próximo slide">›</button>
   </section>
 
-  <main>
     <!-- Seção: Cartela de Cores -->
     <section id="cartela-cores" class="section content-row">
       <div class="image">
-        <img src="images/cartela-cores.jpg" alt="Cartela de Cores">
+        <!-- amostras reais da cartela (mesmas cores de cartela-de-cores.js) -->
+        <div class="swatch-strip" aria-hidden="true">
+          <span style="background:#101010"></span>
+          <span style="background:#232457"></span>
+          <span style="background:#CCD4E3"></span>
+          <span style="background:#C1D3E0"></span>
+          <span style="background:#254E7C"></span>
+        </div>
       </div>
       <div class="text">
         <p class="cc-subtitle">CATÁLOGO</p>
@@ -87,91 +106,76 @@
     </section>
 
     <!-- Seção: Cartelas de Estampas -->
-    <section id="cartelas-estampas" class="section content-row reverse" data-reveal>
-        <div class="image">
-            <img src="images/cartelas-estampas.jpg" alt="Cartelas de Estampas">
-        </div>
-        <div class="text">
-            <p class="cc-subtitle">CATÁLOGO</p>
-            <h2 class="cc-title">ESTAMPAS</h2>
-            <p class="cc-text">
-            Nossas cartelas de estampas unem arte e tecnologia, criando padrões exclusivos
-            para dar personalidade e movimento às suas peças. Explore texturas, formas e
-            combinações inovadoras.
-            </p>
-            <!-- Botão Conheça adicionado -->
-            <a href="cartela-de-estampas.html" class="btn-saiba">Conheça</a>
-        </div>
+    <section id="cartelas-estampas" class="section content-row reverse">
+      <div class="image">
+        <img src="images/estampa-floral.webp" alt="Estampa floral em aquarela (imagem ilustrativa)" width="1536" height="456" loading="lazy">
+        <span class="ph-art__label ph-art__label--float" aria-hidden="true">Ilustrativo</span>
+      </div>
+      <div class="text">
+        <p class="cc-subtitle">CATÁLOGO</p>
+        <h2 class="cc-title">ESTAMPAS</h2>
+        <p class="cc-text">
+          Nossas cartelas de estampas unem arte e tecnologia, criando padrões exclusivos
+          para dar personalidade e movimento às suas peças. Explore texturas, formas e
+          combinações inovadoras.
+        </p>
+        <a href="cartela-de-estampas.html" class="btn-saiba">Conheça</a>
+      </div>
     </section>
+  </main>
 
-  <!-- Footer Summary -->
   <footer class="footer-sumario">
-    <!-- Chatbot Sueco -->
-    <div class="chatbot-wrapper">
-        <div class="chatbot-toggle">
-        <img src="images/logo2.png" alt="Avatar do Chatbot" class="chatbot-avatar">
-        <span class="chatbot-label">Compre pelo WhatsApp</span>
-        </div>
-        <iframe
-        src="URL_DO_SEU_CHATBOT"
-        class="chatbot-window"
-        title="Chat Sueco">
-        </iframe>
-    </div>
-
     <div class="container">
+      <!-- Logo e endereços -->
       <div>
         <div class="logo">
-          <img src="images/logo.png" alt="Logo SUECO">
+          <img src="images/logo.png" alt="" width="40" height="40">
           <span>SUECO</span>
         </div>
         <div class="address-info">
           <strong>FÁBRICA</strong><br>
-          Estrada Municipal, 57 | Jardim Santo Afonso<br>
-          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
+          Estrada Municipal, 57 | Jardim Santo Afonso<br>
+          CEP: 07215-040 | Guarulhos-SP | (11) 2139-6000
         </div>
         <div class="address-info">
           <strong>ESCRITÓRIO</strong><br>
-          Rua Correia de Melo, 192 | Bom Retiro<br>
-          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
+          Rua Correia de Melo, 192 | Bom Retiro<br>
+          CEP: 01123-120 | São Paulo-SP | (11) 2139-6000
         </div>
       </div>
 
-    <div>
-      <h4>Institucional</h4>
-      <a href="index.html">Home</a>
-      <a href="colecoes.html">Coleções</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="sobre.html">Sobre</a>
-    </div>
-    
-    <div>
-        <h4>Contato & Acesso</h4>
-        <a href="index.html#contato">Contato</a>
-        <a href="/area-cliente">Acesso Restrito</a>
-        <a href="/termos">Termos de Uso</a>
-        <a href="/privacidade">Política de Privacidade</a>
-     </div>
+      <!-- Institucional -->
+      <nav aria-label="Institucional">
+        <h2>Institucional</h2>
+        <a href="index.html">Home</a>
+        <a href="colecoes.html">Coleções</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
 
+      <!-- Catálogo e serviços -->
+      <nav aria-label="Catálogo e serviços">
+        <h2>Catálogo &amp; Serviços</h2>
+        <a href="cartela-de-cores.html">Cartela de Cores</a>
+        <a href="cartela-de-estampas.html">Cartela de Estampas</a>
+        <a href="estampas-personalizadas.html">Estampas Personalizadas</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+
+      <!-- Contato rápido -->
       <div class="contact-info">
-        <h4>Contato Rápido:</h4>
-        <p><i class="fas fa-phone"></i> (11) 2139-6000</p>
-        <p><i class="fas fa-envelope"></i> contato@sueco.com.br</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-          <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-        </div>
+        <h2>Contato Rápido</h2>
+        <a class="contact-line" href="tel:+551121396000"><svg class="contact-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg><span class="sr-only">Telefone: </span>(11) 2139-6000</a>
+        <a class="contact-line" href="mailto:contato@sueco.com.br"><svg class="contact-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5.1 8-5.1V7H4zm16 2.8-7.46 4.75a1 1 0 0 1-1.08 0L4 9.8V17h16V9.8z"/></svg><span class="sr-only">E-mail: </span>contato@sueco.com.br</a>
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2025 SUECO – Todos os direitos reservados.
+      &copy; 2025 SUECO - Todos os direitos reservados.
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
   <script src="script.js"></script>
 </body>
 </html>
