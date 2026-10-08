@@ -2,6 +2,8 @@
 
 Site institucional e catálogo digital para a SUECO Têxtil, com apresentação de coleções, cartela de cores, cartela de estampas e serviço de estampas personalizadas.
 
+> **Status:** em desenvolvimento. O site ainda não foi publicado, e parte das fotos e dos textos aguarda o material do cliente (veja a seção "Conteúdo do cliente").
+
 ## 📄 Páginas
 
 | Página | Arquivo | Conteúdo |
